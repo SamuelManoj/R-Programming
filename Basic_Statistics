@@ -1,0 +1,65 @@
+#Data Set
+data_series <-c(19,4,33,2,51,32,2,41,18,2,4,1)
+
+#Mean
+data_series_mean <- mean(data_series)
+data_series_mean
+
+#Median
+data_series_median <- median(data_series)
+data_series_median
+
+#mode
+y <- table(data_series)
+y
+
+names(y)[which(y==max(y))]
+
+#frequency distribution
+class <- c("20-30","30-40", "40-50","50-60","60-70","70-80")
+class
+
+freq <- c(5,8,9,10,6,2)
+freq
+
+rel_freq <- freq/sum(freq)
+rel_freq
+
+cum_freq <- cumsum(rel_freq)
+cum_freq
+
+freq_table <- cbind(class, freq,rel_freq,cum_freq)
+freq_table
+
+#Ogives tables
+df <- c(12, 13, 17, 21, 24, 24, 26, 27, 27, 30, 32, 35, 37, 38, 41, 43, 44, 46, 53, 58
+)
+range(df)
+
+breaks <- seq(from=10, to=60, by=10)
+breaks
+
+df.cut <- cut(df, breaks, right = FALSE)
+df.cut
+
+frequency <- table(df.cut)
+frequency
+
+cbind(frequency)
+
+#Relative Frequency
+df.relfreq <- frequency/sum(frequency)
+cbind(frequency, df.relfreq)
+
+#Cumulative Frequency
+df.cumfreq <- cumsum(frequency)
+df.cumfreq
+
+#Cumulative Relative Frequency
+df.cumrelfreq <- cumsum(df.relfreq)
+df.cumrelfreq
+
+cbind(frequency, df.relfreq, df.cumfreq, df.cumrelfreq)
+
+#Ogives graph
+library(agricolae)
